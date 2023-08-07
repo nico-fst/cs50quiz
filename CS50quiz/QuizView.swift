@@ -25,7 +25,7 @@ struct QuizView: View {
             if !isQuizFinished {
                     Spacer()
                     
-                    VStack(spacing: 80) {
+                    VStack(spacing: 140) {
                         Text(questions[currentQuestionIndex].text)
                             .font(.title)
                             .padding()
@@ -58,19 +58,11 @@ struct QuizView: View {
                         }
                         .padding(.horizontal)
                     }
-                    .padding(.bottom, 20)
-                    .padding()
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(Color.white)
-                    )
-                    .padding(.horizontal)
+                    .padding(.horizontal, 5)
                     .shadow(radius: 5)
-                    .padding()
-                    
-                    Spacer()
                 }
-                
+            
+                Spacer()
                 Spacer()
             
             if showNextButton {
