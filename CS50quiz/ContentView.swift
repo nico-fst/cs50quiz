@@ -20,6 +20,7 @@ struct ContentView: View {
                     .padding(.bottom, 5)
                 
                 Text("by @nico_strn")
+                    .padding(.bottom, 60)
                 
                 NavigationLink(
                     destination: QuizView(selectedQuestionCount: selectedQuestionCount, questions: quizData),
