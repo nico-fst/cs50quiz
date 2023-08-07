@@ -23,45 +23,55 @@ struct QuizView: View {
                 .padding(.top, 20)
             
             if !isQuizFinished {
-                Spacer()
-                
-                Text(questions[currentQuestionIndex].text)
-                    .font(.title)
-                    .padding()
-                    .scaleEffect(selectedAnswerIndex == nil ? 1 : 1.1)
-                
-                Spacer()
-                
-                VStack(spacing: 10) {
-                    ForEach(0..<questions[currentQuestionIndex].answers.count, id: \.self) { index in
-                        Button(action: {
-                            selectedAnswerIndex = index
-                            checkAnswer()
-                            showNextButton = true
-                        }) {
-                            Text(questions[currentQuestionIndex].answers[index])
-                                .font(.headline)
-                                .foregroundColor(Color.black)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(
-                                    getColorForAnswerBox(index: index)
-                                )
-                                .opacity(selectedAnswerIndex == nil || selectedAnswerIndex == index ? 1 : 0.5)
-                                .cornerRadius(10)
-                                .shadow(color: selectedAnswerIndex == index ?
-                                            (isCorrectAnswer ? Color.green : Color.red) : Color.black.opacity(0.2),
-                                        radius: 5, x: 0, y: 2)
-                                .animation(.easeInOut(duration: 0.3))
+                    Spacer()
+                    
+                    VStack(spacing: 80) {
+                        Text(questions[currentQuestionIndex].text)
+                            .font(.title)
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        VStack(spacing: 20) {
+                            ForEach(0..<questions[currentQuestionIndex].answers.count, id: \.self) { index in
+                                Button(action: {
+                                    selectedAnswerIndex = index
+                                    checkAnswer()
+                                    showNextButton = true
+                                }) {
+                                    Text(questions[currentQuestionIndex].answers[index])
+                                        .font(.headline)
+                                        .foregroundColor(Color.black)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(
+                                            RoundedRectangle(cornerRadius: 10)
+                                                .fill(getColorForAnswerBox(index: index))
+                                        )
+                                        .opacity(selectedAnswerIndex == nil || selectedAnswerIndex == index ? 1 : 0.5)
+                                        .shadow(color: selectedAnswerIndex == index ?
+                                                    (isCorrectAnswer ? Color.green : Color.red) : Color.black.opacity(0.2),
+                                                radius: 5, x: 0, y: 2)
+                                        .animation(.easeInOut(duration: 0.3))
+                                }
+                                .disabled(selectedAnswerIndex != nil)
+                            }
                         }
-                        .disabled(selectedAnswerIndex != nil)
+                        .padding(.horizontal)
                     }
+                    .padding(.bottom, 20)
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(Color.white)
+                    )
+                    .padding(.horizontal)
+                    .shadow(radius: 5)
+                    .padding()
+                    
+                    Spacer()
                 }
                 
                 Spacer()
-            }
-            
-            Spacer()
             
             if showNextButton {
                 PrimaryButton(text: "Next")
