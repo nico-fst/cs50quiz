@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var viewModel = ViewModel()  // Instantiate ViewModel
     @State private var startQuiz = false
     @State private var selectedQuestionCount = 1 // Default value
     var questionCounts = [1, 2, 3, 4] // Available question counts
@@ -23,10 +24,10 @@ struct ContentView: View {
                     .padding(.bottom, 60)
                 
                 NavigationLink(
-                    destination: QuizView(selectedQuestionCount: selectedQuestionCount, questions: quizData),
+                    destination: QuizView(selectedQuestionCount: selectedQuestionCount, viewModel: viewModel),  // Pass ViewModel instance
                     isActive: $startQuiz,
                     label: {
-                        EmptyView() // NavigationLink is triggered programmatically
+                        EmptyView()
                     }
                 )
                 
@@ -48,6 +49,9 @@ struct ContentView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .edgesIgnoringSafeArea(.all)
             .background(Color(red: 220/255, green: 237/255, blue: 255/255)) // pastel baby blue
+            .onAppear {
+                viewModel.getData()
+            }
         }
     }
     

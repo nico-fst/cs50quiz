@@ -2,7 +2,16 @@ import SwiftUI
 
 struct QuizView: View {
     var selectedQuestionCount: Int
-    var questions: [Question]
+    var questions: [Question] {
+        viewModel.list
+    }
+    
+    @ObservedObject var viewModel: ViewModel // Add an instance of ViewModel
+        
+    init(selectedQuestionCount: Int, viewModel: ViewModel) { // Update the initializer
+        self.selectedQuestionCount = selectedQuestionCount
+        self.viewModel = viewModel // Assign the ViewModel instance
+    }
     
     @State private var currentQuestionIndex = 0
     @State private var selectedAnswerIndex: Int? = nil
@@ -11,11 +20,6 @@ struct QuizView: View {
     @State private var correctAnswerCount = 0
     @State private var isQuizFinished = false
     @State private var showNextButton = false
-    
-    init(selectedQuestionCount: Int, questions: [Question]) {
-        self.selectedQuestionCount = selectedQuestionCount
-        self.questions = Array(questions.prefix(selectedQuestionCount))
-    }
 
     var body: some View {
         VStack {
@@ -119,6 +123,7 @@ struct QuizView: View {
     
     func getTopicForWeek(_ week: Int) -> String {
         switch week {
+            case 0: return "😻 Scratch or default"
             case 1: return "👨🏼‍💻 C"
             case 2: return "🗃️ Arrays"
             case 3: return "💡 Algorithms"
@@ -173,6 +178,6 @@ struct QuizView: View {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizView(selectedQuestionCount: 3, questions: quizData)
+        QuizView(selectedQuestionCount: 3, viewModel: ViewModel())
     }
 }
