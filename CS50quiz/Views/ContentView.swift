@@ -54,12 +54,14 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                PrimaryButton(text: "Cooolor")
-                    .onTapGesture {
-                        changeSymbolColor()
-                    }
-                    
-                Spacer()
+                Button(action: {
+                    changeSymbolColor()
+                }, label: {
+                    Text("Cooolor")
+                        .font(.headline)
+                        .foregroundColor(dblue)
+                })
+                .padding(.bottom, 10)
                 
                 PrimaryButton(text: "Start")
                     .onTapGesture {

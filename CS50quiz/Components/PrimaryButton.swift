@@ -14,6 +14,7 @@ struct PrimaryButton: View {
     
     var body: some View {
         Text(text)
+            .font(.system(size: 20))
             .foregroundColor(.white)
             .padding()
             .padding(.horizontal)
