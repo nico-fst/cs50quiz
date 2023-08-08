@@ -4,7 +4,6 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()  // Instantiate ViewModel
     @State private var startQuiz = false
     @State private var selectedQuestionCount = 1 // Default value
-    var questionCounts = [1, 2, 3, 4] // Available question counts
     
     var body: some View {
         NavigationView {
@@ -32,7 +31,7 @@ struct ContentView: View {
                 )
                 
                 Picker("How many questions?:", selection: $selectedQuestionCount) {
-                    ForEach(questionCounts, id: \.self) { count in
+                    ForEach(viewModel.availableQuestionCounts, id: \.self) { count in
                         Text("\(count) Question\(count == 1 ? "" : "s")")
                     }
                 }
