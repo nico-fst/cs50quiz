@@ -1,5 +1,7 @@
 import SwiftUI
 
+public var hotred = Color(red: 184/255, green: 58/255, blue: 63/255)
+public var lolila = Color(red: 116/255, green: 84/255, blue: 140/255)
 public var dblue = Color(red: 61/255, green: 65/255, blue: 109/255)
 public var lblue = Color(red: 105/255, green: 135/255, blue: 164/255)
 

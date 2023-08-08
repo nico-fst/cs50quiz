@@ -27,22 +27,22 @@ struct QuizView: View {
                         HStack() {
                             Text("\(currentQuestionIndex + 1) of \(selectedQuestionCount)")
                                 .font(.footnote)
+                                .foregroundColor(lolila)
+                                .padding(10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .strokeBorder(lolila, lineWidth: 1.3)
+                                        .background(RoundedRectangle(cornerRadius: 40).fill(lolila).opacity(0.3))
+                                )
+                            
+                            Text("Week \(questions[currentQuestionIndex].week)")
+                                .font(.footnote)
                                 .foregroundColor(dblue)
                                 .padding(10)
                                 .background(
                                     RoundedRectangle(cornerRadius: 40)
                                         .strokeBorder(dblue, lineWidth: 1.3)
                                         .background(RoundedRectangle(cornerRadius: 40).fill(dblue).opacity(0.3))
-                                )
-                            
-                            Text("Week \(questions[currentQuestionIndex].week)")
-                                .font(.footnote)
-                                .foregroundColor(lblue)
-                                .padding(10)
-                                .background(
-                                    RoundedRectangle(cornerRadius: 40)
-                                        .strokeBorder(lblue, lineWidth: 1.3)
-                                        .background(RoundedRectangle(cornerRadius: 40).fill(lblue).opacity(0.3))
                                 )
                             
                             Text("\(getTopicForWeek(questions[currentQuestionIndex].week))") // Hier wird der entsprechende Text formatiert
