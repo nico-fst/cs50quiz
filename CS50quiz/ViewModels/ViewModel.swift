@@ -7,7 +7,12 @@ class ViewModel: ObservableObject {
     @Published var listUnshuffled = [Question]()
     @Published var list = [Question]()
     
-    var questionCounts = [1, 2, 5, 10, 25, 50, 100] // Available question counts
+    var questionCounts: [Int] {
+        let totalQuestionCount = listUnshuffled.count
+        let maxSelectableCount = min(totalQuestionCount, 100) // Limit to a maximum of 100 questions
+        return Array(stride(from: 5, through: maxSelectableCount, by: 5))
+    }
+
     var availableQuestionCounts: [Int] {
         guard listUnshuffled.count > 0 else {
             return []

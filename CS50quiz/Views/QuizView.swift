@@ -23,8 +23,11 @@ struct QuizView: View {
 
     var body: some View {
         VStack {
-            ProgressView(value: Double(currentQuestionIndex), total: Double(selectedQuestionCount))
-                .padding(.top, 20)
+            ProgressBarView(progress: CGFloat(currentQuestionIndex) / CGFloat(selectedQuestionCount))
+                    .frame(height: 8)
+                    .padding(.top, 8)
+                    .padding(.horizontal)
+                    .foregroundColor(.blue)
             
             if !isQuizFinished {
                     VStack(spacing: 140) {
