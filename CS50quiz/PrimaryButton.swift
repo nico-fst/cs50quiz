@@ -1,11 +1,7 @@
-//
-//  PrimaryButton.swift
-//  CS50quiz
-//
-//  Created by Nico Stern on 07.08.23.
-//
-
 import SwiftUI
+
+public var dblue = Color(red: 61/255, green: 65/255, blue: 109/255)
+public var lblue = Color(red: 105/255, green: 135/255, blue: 164/255)
 
 struct PrimaryButton: View {
     
@@ -19,7 +15,7 @@ struct PrimaryButton: View {
             .foregroundColor(.white)
             .padding()
             .padding(.horizontal)
-            .background(Color(red: redValue, green: greenValue, blue: blueValue))
+            .background(dblue)
             .cornerRadius(30)
             .shadow(radius: 10)
     }

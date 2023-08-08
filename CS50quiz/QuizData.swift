@@ -4,28 +4,34 @@ struct Question {
     var text: String
     var answers: [String]
     var correctAnswerIndex: Int
+    var week: Int
 }
 
 var quizDataUnshuffled: [Question] = [
     Question(text: "Was ist die Hauptstadt von Frankreich?",
              answers: ["Berlin", "Paris", "Madrid", "Rom"],
-             correctAnswerIndex: 1),
+             correctAnswerIndex: 1,
+             week: 1),
 
     Question(text: "Welche Programmiersprache wird oft als 'die Mutter aller Programmiersprachen' bezeichnet?",
              answers: ["C", "Java", "Python", "Fortran"],
-             correctAnswerIndex: 0),
+             correctAnswerIndex: 0,
+             week: 2),
 
     Question(text: "Was ist eine Zeichenkette in vielen Programmiersprachen?",
              answers: ["Eine Methode", "Ein Integer-Wert", "Ein boolescher Wert", "Text"],
-             correctAnswerIndex: 3),
+             correctAnswerIndex: 3,
+             week: 3),
 
     Question(text: "Welches Konzept ermöglicht das Erstellen neuer Klassen basierend auf bestehenden Klassen?",
              answers: ["Vererbung", "Überladung", "Polymorphismus", "Abstraktion"],
-             correctAnswerIndex: 0),
+             correctAnswerIndex: 0,
+             week: 4),
 
     Question(text: "Was ist der Zweck von Git in der Softwareentwicklung?",
              answers: ["Datenbankverwaltung", "Grafikdesign", "Versionskontrolle", "Datenbankabfrage"],
-             correctAnswerIndex: 2)
+             correctAnswerIndex: 2,
+             week: 5)
 ]
 
 func shuffleQuestions(_ questions: [Question]) -> [Question] {

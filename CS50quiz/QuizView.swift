@@ -23,9 +23,43 @@ struct QuizView: View {
                 .padding(.top, 20)
             
             if !isQuizFinished {
-                    Spacer()
-                    
                     VStack(spacing: 140) {
+                        HStack() {
+                            Text("\(currentQuestionIndex + 1) of \(selectedQuestionCount)")
+                                .font(.footnote)
+                                .foregroundColor(dblue)
+                                .padding(10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .strokeBorder(dblue, lineWidth: 1.3)
+                                        .background(RoundedRectangle(cornerRadius: 40).fill(dblue).opacity(0.3))
+                                )
+                            
+                            Text("Week \(questions[currentQuestionIndex].week)")
+                                .font(.footnote)
+                                .foregroundColor(lblue)
+                                .padding(10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .strokeBorder(lblue, lineWidth: 1.3)
+                                        .background(RoundedRectangle(cornerRadius: 40).fill(lblue).opacity(0.3))
+                                )
+                            
+                            Text("\(getTopicForWeek(questions[currentQuestionIndex].week))") // Hier wird der entsprechende Text formatiert
+                                .font(.footnote)
+                                .foregroundColor(lblue)
+                                .padding(10)
+                                .background(
+                                    RoundedRectangle(cornerRadius: 40)
+                                        .strokeBorder(lblue, lineWidth: 1.3)
+                                        .background(RoundedRectangle(cornerRadius: 40).fill(lblue).opacity(0.3))
+                                )
+                            
+                            Spacer()
+                        }
+                        .padding(12)
+                        
+                        
                         Text(questions[currentQuestionIndex].text)
                             .font(.title)
                             .padding()
@@ -81,6 +115,22 @@ struct QuizView: View {
             }
         )
         .background(Color(red: 220/255, green: 237/255, blue: 255/255))
+    }
+    
+    func getTopicForWeek(_ week: Int) -> String {
+        switch week {
+            case 1: return "👨🏼‍💻 C"
+            case 2: return "🗃️ Arrays"
+            case 3: return "💡 Algorithms"
+            case 4: return "🧠 Memory"
+            case 5: return "🌳 Data Structures"
+            case 6: return "🐍 Python"
+            case 7: return "🛢️SQL"
+            case 8: return "🌍 Web"
+            case 9: return "🍼 Flask"
+            case 10: return "😜 Emoji"
+            default: return ""
+        }
     }
     
     func checkAnswer() {

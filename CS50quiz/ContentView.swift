@@ -12,7 +12,7 @@ struct ContentView: View {
                 
                 Image(systemName: "graduationcap.fill")
                     .font(.system(size: 100))
-                    .foregroundColor(Color(red: 76/255, green: 82/255, blue: 101/255)) // Use PrimaryButton color
+                    .foregroundColor(dblue) // Use PrimaryButton color
                     .padding(.bottom, 40)
                 
                 Text("This is the CS50 Quiz!")
