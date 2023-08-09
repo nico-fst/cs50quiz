@@ -1,7 +1,7 @@
 # CS50quiz by Nico Stern
 ![‎2023_08 CS50 Final Project ‎006](https://github.com/nico-fst/cs50quiz/assets/108625504/75a3edd0-f220-4a56-bf1c-243ed199ceb5)
 
-### Video Demo:  <URL HERE>
+[🔗 Video Demo](https://youtu.be/6xHT6hPvVs4)
 ## Description:
 Using the knowledge gained througout the ten weeks of CS50x, this Swift code for iOS devices (tested on iPhone 14 Pro running iOS 16) builds a Single Choice QuizApp.
 The questions are fetched and parsed as .json from a Firestore Database.
