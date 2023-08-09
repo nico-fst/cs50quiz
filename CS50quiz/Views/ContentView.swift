@@ -5,7 +5,7 @@ struct ContentView: View {
     @StateObject private var viewModel = ViewModel()  // Instantiate ViewModel
     @State private var startQuiz = false
     @State private var selectedQuestionCount = 1 // Default value
-    @State private var symbolColor: Color = .black
+    @State private var symbolColor: Color = dblue
     @State private var motionManager = CMMotionManager()
     
     private func changeSymbolColor() {
