@@ -9,7 +9,7 @@
 ### Short description (Project)
 Using the knowledge gained througout the ten weeks of CS50x, this Swift code for iOS devices (tested on iPhone 14 Pro running iOS 16) builds a Single Choice QuizApp.
 The questions are fetched and parsed as .json from a Firestore Database.
-The project is connected to a Firebase via SDK packages (particulary FireAuth). 
+The project is connected to a Firebase via SDK packages (particulary FireAuth). Since Swift is not covered in the CS50x input, I made use of several online tutorials, eg. for Firebase or .json parsing.
 
 ### Description (Project Components)
 
