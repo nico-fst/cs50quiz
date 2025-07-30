@@ -2,8 +2,6 @@
 
 ![‎2023_08 CS50 Final Project ‎006](https://github.com/nico-fst/cs50quiz/assets/108625504/75a3edd0-f220-4a56-bf1c-243ed199ceb5)
 
-[🔗 Video Demo](https://youtu.be/WwYPEt9rm1Q)
-
 ## Description
 
 ### Short description (Project)
